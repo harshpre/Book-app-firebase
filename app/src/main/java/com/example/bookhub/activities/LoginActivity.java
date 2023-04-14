@@ -1,6 +1,5 @@
-package com.example.bookhub;
+package com.example.bookhub.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;

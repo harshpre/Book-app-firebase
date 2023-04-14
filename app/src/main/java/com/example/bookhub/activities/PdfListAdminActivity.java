@@ -1,7 +1,8 @@
-package com.example.bookhub;
+package com.example.bookhub.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,11 +46,13 @@ public class PdfListAdminActivity extends AppCompatActivity {
         Intent intent = getIntent();
         categoryID = intent.getStringExtra("categoryID");
         categoryTitle = intent.getStringExtra("categoryTitle");
+        Log.d("Idddd", ""+categoryID+"\n"+categoryTitle);
 
         //set pdf category
         binding.subtitleTv.setText(categoryTitle);
 
         loadPdfList();
+
 
         //search
         binding.searchEt.addTextChangedListener(new TextWatcher() {
@@ -90,7 +93,7 @@ public class PdfListAdminActivity extends AppCompatActivity {
         pdfArrayList = new ArrayList<>();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Books");
-        databaseReference.orderByChild("categoryID").equalTo(categoryID)
+        databaseReference.orderByChild("categoryId").equalTo(categoryID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -106,7 +109,10 @@ public class PdfListAdminActivity extends AppCompatActivity {
                         //setup adapter
                         adapterPdfAdmin = new AdapterPdfAdmin(PdfListAdminActivity.this, pdfArrayList);
                         adapterPdfAdmin.notifyDataSetChanged();
+                        binding.bookRv.setLayoutManager(new LinearLayoutManager(PdfListAdminActivity.this));
+                        binding.bookRv.setHasFixedSize(true);
                         binding.bookRv.setAdapter(adapterPdfAdmin);
+
                     }
 
                     @Override

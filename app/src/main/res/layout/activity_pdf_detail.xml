@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    tools:context=".PdfDetailActivity">
+    tools:context=".activities.PdfDetailActivity">
 
     <!--Toolbar-->
     <RelativeLayout
@@ -56,8 +56,8 @@
             <!--Book preview-->
             <RelativeLayout
                 android:id="@+id/pdfRl"
-                android:layout_width="100dp"
-                android:layout_height="140dp"
+                android:layout_width="110dp"
+                android:layout_height="150dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/gray1">
 
@@ -200,6 +200,28 @@
 
                 </TableRow>
 
+                <!--Number of pages-->
+                <TableRow
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/pagesLabelTv"
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="Pages"/>
+
+                    <TextView
+                        android:id="@+id/pagesTv"
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="5dp"
+                        android:text="N/A"/>
+
+                </TableRow>
+
             </TableLayout>
 
         </RelativeLayout>
@@ -223,13 +245,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/design_default_color_primary"
         android:layout_alignParentBottom="true">
 
         <!--Button: Open to view pdf-->
         <Button
             android:id="@+id/readBookBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/baseline_book_white"
             android:text="Read"
@@ -239,10 +262,20 @@
         <Button
             android:id="@+id/downloadBookBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/baseline_download_white"
             android:text="Download"
+            android:background="@color/design_default_color_primary"/>
+
+        <!--Button: Add/Remove Favorite-->
+        <Button
+            android:id="@+id/favoriteBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/baseline_favorite_border_white"
+            android:text="Add Favorite"
             android:background="@color/design_default_color_primary"/>
 
     </LinearLayout>

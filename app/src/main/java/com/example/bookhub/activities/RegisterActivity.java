@@ -1,6 +1,5 @@
-package com.example.bookhub;
+package com.example.bookhub.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.bookhub.databinding.ActivityRegisterBinding;
@@ -21,8 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-
-import kotlin.text.UStringsKt;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -159,7 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         Toast.makeText(RegisterActivity.this, "Account created...", Toast.LENGTH_SHORT).show();
                         //since user account is created so start dashboard of user
-                        startActivity(new Intent(RegisterActivity.this,DashboardUserActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, DashboardUserActivity.class));
                         finish();
                     }
                 })

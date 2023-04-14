@@ -1,4 +1,4 @@
-package com.example.bookhub;
+package com.example.bookhub.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

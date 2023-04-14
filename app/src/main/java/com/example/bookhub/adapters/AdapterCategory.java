@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookhub.PdfListAdminActivity;
+import com.example.bookhub.activities.PdfListAdminActivity;
 import com.example.bookhub.filters.FilterCategory;
 import com.example.bookhub.models.ModelCategory;
 import com.example.bookhub.databinding.RowCategoryBinding;

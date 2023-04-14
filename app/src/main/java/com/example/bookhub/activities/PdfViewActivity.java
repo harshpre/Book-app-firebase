@@ -1,6 +1,5 @@
-package com.example.bookhub;
+package com.example.bookhub.activities;
 
-import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.bookhub.Constants;
 import com.example.bookhub.databinding.ActivityPdfViewBinding;
 import com.github.barteksc.pdfviewer.listener.OnErrorListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
@@ -42,7 +42,7 @@ public class PdfViewActivity extends AppCompatActivity {
         //get bookId from intent that we passed in intent
         Intent intent = getIntent();
         bookId = intent.getStringExtra("bookId");
-        Log.d(TAG, "onCreate: BookId:"+bookId);
+        Log.d(TAG, "onCreate: BookId: "+bookId);
 
         loadBookDetails();
 
@@ -50,7 +50,7 @@ public class PdfViewActivity extends AppCompatActivity {
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                  onBackPressed();
             }
         });
     }
@@ -94,15 +94,15 @@ public class PdfViewActivity extends AppCompatActivity {
                                     public void onPageChanged(int page, int pageCount) {
                                         //set current and total pages in toolbar subtitle
                                         int currentPage = (page + 1);//do + 1 because page starts from 0
-                                        binding.toolbarSubtitleTv.setText(currentPage + "/"+pageCount); //e.g. 3/290
-                                        Log.d(TAG, "onPageChanged: "+currentPage + "/"+pageCount);
+                                        binding.toolbarSubtitleTv.setText(currentPage + "/" + pageCount); //e.g. 3/290
+                                        Log.d(TAG, "onPageChanged: "+currentPage + "/" + pageCount);
                                     }
                                 })
-                                        .onError(new OnErrorListener() {
-                                            @Override
-                                            public void onError(Throwable t) {
-                                                Log.d(TAG, "onError: "+t.getMessage());
-                                                Toast.makeText(PdfViewActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                .onError(new OnErrorListener() {
+                                    @Override
+                                    public void onError(Throwable t) {
+                                        Log.d(TAG, "onError: "+t.getMessage());
+                                        Toast.makeText(PdfViewActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 })
                                 .onPageError(new OnPageErrorListener() {
